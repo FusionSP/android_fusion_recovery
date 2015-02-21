@@ -65,7 +65,7 @@ void twmtp_MtpServer::start()
 	MTPD("Starting add / remove mtppipe monitor thread\n");
 	pthread_t thread;
 	ThreadPtr mtpptr = &twmtp_MtpServer::mtppipe_thread;
-	PThreadPtr p = *(PThreadPtr*)&mtpptr;
+	PThreadPtr p = (PThreadPtr)&mtpptr;
 	pthread_create(&thread, NULL, p, this);
 	// This loop restarts the MTP process if the device is unplugged and replugged in
 	while (true) {

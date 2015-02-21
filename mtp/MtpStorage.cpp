@@ -586,7 +586,7 @@ pthread_t MtpStorage::inotify(void) {
 		return 0;
 	}
 	ThreadPtr inotifyptr = &MtpStorage::inotify_t;
-	PThreadPtr p = *(PThreadPtr*)&inotifyptr;
+	PThreadPtr p = (PThreadPtr)&inotifyptr;
 	pthread_create(&thread, &tattr, p, this);
 	if (pthread_attr_destroy(&tattr)) {
 		MTPE("Failed to pthread_attr_destroy\n");

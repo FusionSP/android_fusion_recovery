@@ -67,6 +67,8 @@ ifeq ($(TW_ROUND_SCREEN), true)
   LOCAL_CFLAGS += -DTW_ROUND_SCREEN
 endif
 
+LOCAL_CPPFLAGS += -fno-strict-aliasing
+
 ifeq ($(DEVICE_RESOLUTION),)
   $(warning ********************************************************************************)
   $(warning * DEVICE_RESOLUTION is NOT SET in BoardConfig.mk )

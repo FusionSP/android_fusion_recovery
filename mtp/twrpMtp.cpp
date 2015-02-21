@@ -87,7 +87,7 @@ int twrpMtp::start(void) {
 pthread_t twrpMtp::threadserver(void) {
 	pthread_t thread;
 	ThreadPtr mtpptr = &twrpMtp::start;
-	PThreadPtr p = *(PThreadPtr*)&mtpptr;
+	PThreadPtr p = (PThreadPtr)&mtpptr;
 	pthread_create(&thread, NULL, p, this);
 	return thread;
 }
